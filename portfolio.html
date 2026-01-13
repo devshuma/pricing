@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио и отзывы | Shumacat Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f1f5f9;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(90deg, #0369a1, #0ea5e9);
+            padding: 40px 50px;
+            text-align: center;
+            border-bottom: 4px solid #38bdf8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2338bdf8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+            font-weight: 900;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .verify-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #10b981;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(16, 185, 129, 0.4);
+            background: #0da271;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav a:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+        }
+
+        .nav a.active {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f1f5f9;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #0369a1);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        .portfolio-card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .portfolio-card.live {
+            border-color: #10b981;
+        }
+
+        .portfolio-card.archived {
+            border-color: #94a3b8;
+        }
+
+        .portfolio-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .status-live {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-archived {
+            background: rgba(148, 163, 184, 0.2);
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .portfolio-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .portfolio-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .portfolio-features i {
+            margin-right: 10px;
+            margin-top: 3px;
+            color: #38bdf8;
+            flex-shrink: 0;
+        }
+
+        .portfolio-links {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0ea5e9, #0369a1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0ea5e9;
+            border: 2px solid #0ea5e9;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            position: relative;
+        }
+
+        /* Бэйджи уровней с цветами как на главной странице */
+        .level-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            padding: 4px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .level-alpha {
+            background: linear-gradient(90deg, #10b981, #059669);
+            color: white;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .level-beta {
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .level-gamma {
+            background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+
+        .level-omega {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+            color: white;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .level-custom {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            color: white;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            font-style: italic;
+            padding-top: 5px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Цветные границы для отзывов в соответствии с уровнем */
+        .testimonial-card.level-alpha-border {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .testimonial-card.level-beta-border {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .testimonial-card.level-gamma-border {
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .testimonial-card.level-omega-border {
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+
+        .testimonial-card.level-custom-border {
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 35px;
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #0ea5e9;
+            text-decoration: underline;
+        }
+
+        /* Легенда уровней */
+        .levels-legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 4px;
+        }
+
+        .legend-alpha { background: linear-gradient(90deg, #10b981, #059669); }
+        .legend-beta { background: linear-gradient(90deg, #3b82f6, #1d4ed8); }
+        .legend-gamma { background: linear-gradient(90deg, #8b5cf6, #7c3aed); }
+        .legend-omega { background: linear-gradient(90deg, #ef4444, #dc2626); }
+        .legend-custom { background: linear-gradient(90deg, #f59e0b, #d97706); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .portfolio-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .levels-legend {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <!-- Header -->
+<div class="header">
+    <h1>Портфолио и отзывы</h1>
+    <p>Реальные проекты и мнения клиентов. Всё можно проверить.</p>
+</div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <a href="index.html">Главная / Прайс</a>
+            <a href="#" class="active">Портфолио и отзывы</a>
+            <a href="https://t.me/shumacat" target="_blank">Заказать</a>
+            <a href="https://t.me/devshuma" target="_blank">Канал</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Легенда уровней -->
+            <div class="levels-legend">
+                <div class="legend-item">
+                    <div class="legend-color legend-alpha"></div>
+                    <span>ALPHA (40-60₽) - простой информационный бот</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-beta"></div>
+                    <span>BETA (70-200₽) - бот с админ-панелью</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-gamma"></div>
+                    <span>GAMMA (250-550₽) - API и динамические данные</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-omega"></div>
+                    <span>OMEGA (800-2000₽) - аналитика и графики</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-custom"></div>
+                    <span>CUSTOM - индивидуальный проект</span>
+                </div>
+            </div>
+
+            <!-- Portfolio Section -->
+            <h2 class="section-title">Мои проекты</h2>
+            <div class="portfolio-grid">
+                <!-- Project 1: Price Tracker -->
+                <div class="portfolio-card live">
+                    <div class="status-badge status-live">
+                        <i class="fas fa-bolt"></i> Активный проект
+                    </div>
+                    <h3>📊 Трекер цен FunPay</h3>
+                    <p>Автоматический парсер цен для Roblox/Toilet Tower Defence. Мониторит лоты, находит самые дешёвые предложения, конвертирует валюту.</p>
+
+                    <ul class="portfolio-features">
+                        <li><i class="fas fa-robot"></i> Автопарсинг каждые 5 минут</li>
+                        <li><i class="fas fa-filter"></i> Валидация и фильтрация лотов</li>
+                        <li><i class="fas fa-chart-bar"></i> Анализ 3 самых дешёвых лотов</li>
+                        <li><i class="fas fa-exchange-alt"></i> Конвертер гемы ↔ рубли</li>
+                    </ul>
+
+                    <div class="portfolio-links">
+                        <a href="https://t.me/ttdpricebot" class="portfolio-btn btn-primary" target="_blank">
+                            <i class="fab fa-telegram"></i> Попробовать бота
+                        </a>
+                        <a href="https://t.me/devshuma/8?single" class="portfolio-btn btn-secondary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Пост в канале
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Chat Statistics -->
+                <div class="portfolio-card archived">
+                    <div class="status-badge status-archived">
+                        <i class="fas fa-archive"></i> Архивный проект
+                    </div>
+                    <h3>📈 Бот статистики чата</h3>
+                    <p>Комплексная аналитика Telegram-чатов: активность участников, частые слова, XP-система, профили пользователей, утилиты.</p>
+
+                    <ul class="portfolio-features">
+                        <li><i class="fas fa-chart-line"></i> Анализ активности и слов</li>
+                        <li><i class="fas fa-user-tie"></i> Персональные профили со стриками и XP</li>
+                        <li><i class="fas fa-clock"></i> Определение часов пик</li>
+                        <li><i class="fas fa-gamepad"></i> Утилиты: орёл/решка, таймеры, напоминания</li>
+                    </ul>
+
+                    <div class="portfolio-links">
+                        <a href="https://t.me/devshuma/20?single" class="portfolio-btn btn-secondary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Пост в канале
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1: Gamma клиент -->
+                <div class="testimonial-card level-gamma-border">
+                    <div class="level-badge level-gamma">GAMMA</div>
+                    <div class="testimonial-content">
+                        "топ не скам!, сделал бота дешего, крч топ покупайте ток у него ботов"
+                    </div>
+                    <div class="testimonial-author">
+                        <span><strong>@Drawkitten</strong></span>
+
+                    </div>
+                    <a href="https://t.me/devshuma/29" class="source-link" target="_blank">
+                        <i class="fas fa-link"></i> Оригинал в канале
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Verification Note -->
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="index.html">Главная / Прайс</a>
+                <a href="portfolio.html">Портфолио</a>
+                <a href="https://t.me/shumacat">Заказать бота</a>
+            </div>
+            <p>© <span id="current-year">2026</span> / by shumacat</p>
+            <p>Все проекты реальные, все отзывы можно проверить.</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #64748b;">
+                <i class="fas fa-info-circle"></i> После заказа бота вы сможете оставить отзыв!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Simple navigation active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav a');
+
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Update year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
