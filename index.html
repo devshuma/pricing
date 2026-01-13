@@ -480,6 +480,36 @@
                 margin-top: 15px;
             }
         }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav a:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+        }
+
+        .nav a.active {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -488,7 +518,12 @@
             <h1>Уровни разработки ботов</h1>
             <p>Выберите оптимальный уровень для вашего проекта. Все цены указаны за базовую разработку. Тестовый хостинг включён в каждый тариф.</p>
         </div>
-
+        <div class="nav">
+            <a href="index.html">Главная / Прайс</a>
+            <a href="portfolio.html" class="active">Портфолио и отзывы</a>
+            <a href="https://t.me/shumacat" target="_blank">Заказать</a>
+            <a href="https://t.me/devshuma" target="_blank">Канал</a>
+        </div>
         <div class="price-grid">
             <!-- ALPHA (бывший BETA) -->
             <div class="price-card alpha">
@@ -640,7 +675,7 @@
                 <div class="service-item">
                     <h3>Обновления и обслуживания</h3>
                     <p class="service-price">От 100 до >500₽ в неделю</p>
-                    <p>Приоритет в очереди, ускоренная разработка, экстренная поддержка</p>
+                    <p>Обновления для вашего бота, можете попросить меня о новых командах и функциях</p>
                 </div>
             </div>
         </div>
@@ -650,6 +685,24 @@
             <p>Связь для заказа: <a href="https://t.me/shumacat">Telegram</a></p>
         </div>
     </div>
+    <script>
+        // Simple navigation active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav a');
+
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Update year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
-
